@@ -1,0 +1,6 @@
+<h1>OUR PETS</h1>
+
+
+<% if !current_user.profile.present? %>
+  <%= link_to '創建個人資料', new_profile_path %>
+<% end %>

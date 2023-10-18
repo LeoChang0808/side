@@ -4,11 +4,18 @@
 	</div>
 	<div>
 		
-		<% if current_user.present? %>
-			<div class="text-white">
-				<%= link_to current_user.email, root_path %>
-				<%= link_to '登出', destroy_user_session_path, data: { turbo_method: 'delete' } %>
-			</div>
+		<% if user_signed_in? %>
+			<% if current_user.profile.present? %>
+				<div class="text-white">
+					<%= link_to current_user.profile.name, profile_path(:id) %>
+					<%= link_to '登出', destroy_user_session_path, data: { turbo_method: 'delete' } %>
+				</div>
+			<% else %>
+				<div class="text-white">
+					<%= link_to current_user.email, profiles_path %>
+					<%= link_to '登出', destroy_user_session_path, data: { turbo_method: 'delete' } %>
+				</div>
+			<% end %>
 		<% else %>
 			<%= link_to '註冊', new_user_registration_path, class: "text-white m-5" %>
 			<%= link_to '登入', new_user_session_path, class: "text-white m-5" %>

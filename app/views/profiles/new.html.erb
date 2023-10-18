@@ -1,0 +1,13 @@
+<h1>建立個人資料！</h1>
+
+<%= form_with(model:@profile, data: { turbo: false }) do |f| %>
+  <div class="m-5">
+    <%= f.label :name, "名稱" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="m-5">
+    <%= f.label :age, "年齡" %>
+    <%= f.text_field :age %>
+  </div>
+  <%= f.submit "建立" %>
+<% end %>
