@@ -1,9 +1,9 @@
 <div class="flex items-center justify-between w-full h-20 p-5 bg-slate-700">
-	<div>
-		<%= link_to "PET GARDEN", root_path, class: "text-white" %>
+	<div class="flex justify-between w-[200px]">
+		<%= link_to "寵物花園", root_path, class: "text-white" %>
+		<%= link_to "飼養者大廳", profiles_path, class: "text-white" %>
 	</div>
 	<div>
-		
 		<% if user_signed_in? %>
 			<% if current_user.profile.present? %>
 				<div class="text-white">
