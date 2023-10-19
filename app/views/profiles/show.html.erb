@@ -1,1 +1,18 @@
-<%= current_user.profile.name %>
+<div class="flex flex-wrap">
+  <div class="m-5">
+    <p class="p-5">姓名</p>
+    <%= current_user.profile.name %>
+  </div>
+  <div class="m-5">
+    <p class="p-5">年齡</p>
+    <%= current_user.profile.age %>
+  </div>
+  <div class="m-5">
+    <p class="p-5">等級</p>
+    <%= current_user.profile.level %>
+  </div>
+  <div class="m-5">
+    <p class="p-5"> 經驗值</p>
+    <%= current_user.profile.exp %>
+  </div>
+</div>
