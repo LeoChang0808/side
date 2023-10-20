@@ -1,0 +1,25 @@
+<div class="flex flex-wrap justify-center w-full">
+  <div class="w-full text-2xl text-center">
+    <h1>寵物花園</h1>
+  </div>
+  <div class="w-full text-center">
+    <h2>在這裡可以看到不同的寵物們</h2>
+  </div>
+</div>
+
+<% if user_signed_in? && !current_user.profile.present? %>
+  <div class="flex flex-wrap items-center justify-center w-full">
+    <%= content_tag(:p, "快來登錄你的飼養者資料吧", class:"w-full text-center")%>
+    <%= link_to '創建個人資料', new_profile_path, class:"bg-black text-white p-5" %>
+  </div>
+<% end %>
+
+<% if !user_signed_in? %>
+  <div class="flex flex-wrap items-center justify-center w-full">
+    <%= content_tag(:p, "快來加入我們成為飼養者吧！", class:"w-full text-center")%>
+    <%= link_to '登記成為飼養者', new_user_registration_path, class:"bg-black text-white p-5" %>
+  </div>
+<% end %>
+
+<div class="flex justify-center w-full">
+</div>
