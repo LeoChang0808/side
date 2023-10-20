@@ -1,13 +1,13 @@
 class ProfilesController < ApplicationController
-  
+
   def index
-    
+    @profiles = Profile.order(id: :desc)
   end
-  
+
   def new
     @profile = Profile.new
   end
-  
+
   def create
     @profile = current_user.create_profile(params_profile)
     if @profile.save
@@ -16,26 +16,26 @@ class ProfilesController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
-    
+
   end
-  
+
   def update
-    
+
   end
-  
+
   def show
-    
+
   end
-  
+
   def destroy
-    
+
   end
 
   def params_profile
     params.require(:profile).permit(:name, :age)
   end
-  
-  
+
+
 end
