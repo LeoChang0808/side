@@ -1,6 +1,9 @@
 <div class="flex items-center justify-between w-full h-20 p-5 bg-slate-700">
 	<div class="flex justify-between w-[200px]">
-		<%= link_to "寵物花園", root_path, class: "text-white" %>
+		<%= link_to root_path, class:"w-10" do %>
+			<%= File.read('app/assets/images/chameleon.svg').html_safe %>
+		<% end %>
+		<%= link_to "寵物花園", pets_path, class: "text-white" %>
 		<%= link_to "飼養者大廳", profiles_path, class: "text-white" %>
 	</div>
 	<div>
