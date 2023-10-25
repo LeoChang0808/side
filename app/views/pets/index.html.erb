@@ -7,11 +7,19 @@
   </div>
 </div>
 
-<% if user_signed_in? && !current_user.profile.present? %>
-  <div class="flex flex-wrap items-center justify-center w-full">
-    <%= content_tag(:p, "快來登錄你的飼養者資料吧", class:"w-full text-center")%>
-    <%= link_to '創建個人資料', new_profile_path, class:"bg-black text-white p-5" %>
-  </div>
+<% if user_signed_in? %>
+  <% if current_user.profile.present? %>
+    <% if current_user.pet.present? %>
+      <%= link_to '看看我的寵物', pet_path(current_user.pet.id), class:"bg-black text-white p-5" %>
+    <% else %>
+      <%= link_to '領取一隻寵物', new_pet_path, class:"bg-black text-white p-5" %>
+    <% end %>
+  <% else %>
+    <div class="flex flex-wrap items-center justify-center w-full">
+      <%= content_tag(:p, "快來登錄你的飼養者資料吧", class:"w-full text-center")%>
+      <%= link_to '創建個人資料', new_profile_path, class:"bg-black text-white p-5" %>
+    </div>
+  <% end %>
 <% end %>
 
 <% if !user_signed_in? %>
@@ -21,5 +29,6 @@
   </div>
 <% end %>
 
-<div class="flex justify-center w-full">
-</div>
+<% @pets.each do |pet| %>
+  <%= pet.name %>
+<% end %>

@@ -10,7 +10,7 @@
 		<% if user_signed_in? %>
 			<% if current_user.profile.present? %>
 				<div class="text-white">
-					<%= link_to current_user.profile.name, profile_path(:id) %>
+					<%= link_to current_user.profile.name, profile_path(current_user.id) %>
 					<%= link_to '登出', destroy_user_session_path, data: { turbo_method: 'delete' } %>
 				</div>
 			<% else %>
