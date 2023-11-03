@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
 
+  before_action :set_profile, only: [:edit, :update, :show, :destroy]
+
   def index
     @profiles = Profile.order(id: :desc)
   end
@@ -37,5 +39,7 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:name, :age)
   end
 
-
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
 end
